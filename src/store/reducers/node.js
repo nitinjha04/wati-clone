@@ -2,18 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   nodes: [
-    {
-      id: "1",
-      position: { x: 150, y: 150 },
-      data: { id: "1", label: "1", value: 123, inputType: null },
-    },
-    {
-      id: "2",
-      position: { x: 400, y: 400 },
-      data: { id: "2", label: "2", inputType: null },
-    },
+    // {
+    //   id: "1",
+    //   position: { x: 150, y: 150 },
+    //   data: { id: "1", label: "1", value: 123, inputType: null },
+    // },
+    // {
+    //   id: "2",
+    //   position: { x: 400, y: 400 },
+    //   data: { id: "2", label: "2", inputType: null },
+    // },
   ],
-  edges: [{ id: "e1-2", source: "1", target: "2" }],
+  edges: [],
 };
 
 const nodesSlice = createSlice({
