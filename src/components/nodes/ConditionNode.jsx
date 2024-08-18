@@ -62,6 +62,14 @@ const ConditionNode = ({ data, id, isConnectable }) => {
           </div>
         </div>
       </div>
+      <div className="flex justify-end items-end gap-3">
+        <button className="rounded border-[#44B26E] text-[#44B26E] border-[1px] py-1 px-4">
+          Cancel
+        </button>
+        <button className="rounded border-[#44B26E] bg-[#44B26E] text-white border-[1px] py-1 px-4">
+          Save
+        </button>
+      </div>
     </div>
   );
   return (
@@ -71,14 +79,14 @@ const ConditionNode = ({ data, id, isConnectable }) => {
           <Handle
             className=" bg-green-500 group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-green-500 border-none h-2 w-2 relative top-1/2  -right-1 transform-none"
             id={`green-${data.id}`}
-            type="source"
+            type="target"
             position={Position.Right}
             isConnectable={isConnectable}
           />
           <Handle
             className=" bg-red-500 group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-red-500 border-none h-2 w-2 relative top-1/2 -right-1 transform-none"
             id={`red-${data.id}`}
-            type="source"
+            type="target"
             position={Position.Right}
             isConnectable={isConnectable}
           />

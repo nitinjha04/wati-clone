@@ -81,7 +81,9 @@ const nodesSlice = createSlice({
           ...action.payload,
           id: (state.edges.length + 1).toString(),
           animated: true,
-          style: { stroke: getStrokeColor(action.payload.sourceHandle) },
+          style: {
+            stroke: getStrokeColor(action.payload?.sourceHandle || "gray"),
+          },
         });
       }
     },

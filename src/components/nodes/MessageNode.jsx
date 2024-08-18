@@ -35,11 +35,26 @@ const MessageNode = ({ data, id, isConnectable }) => {
 
   return (
     <div key={data.id} className="group text-updater-node">
-      {/* <Handle
+      <Handle
+        style={{
+          background: "red",
+        }}
+        className="  bg-customPink group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-customPink border-none h-2 w-2 -right-1  transform-none"
         type="target"
-        position={Position.Top}
+        id={`red-${data.id}`}
+        position={Position.Left}
         isConnectable={isConnectable}
-      /> */}
+      />
+      <Handle
+        style={{
+          background: "red",
+        }}
+        className="  bg-customPink group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-customPink border-none h-2 w-2 -right-1  transform-none"
+        type="source"
+        id={`red-${data.id}`}
+        position={Position.Left}
+        isConnectable={isConnectable}
+      />
       <div className=" shadow-2xl bg-white rounded-lg border-[1px] border-solid">
         <div className=" flex p-3 gap-5 justify-between rounded-t-lg  bg-customPink">
           <div className=" flex gap-3 my-auto items-center">
@@ -296,7 +311,17 @@ const MessageNode = ({ data, id, isConnectable }) => {
         }}
         className="  bg-customPink group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-customPink border-none h-2 w-2 -right-1  transform-none"
         type="source"
-        id="red"
+        id={`red-2-${data.id}`}
+        position={Position.Right}
+        isConnectable={isConnectable}
+      />
+      <Handle
+        style={{
+          background: "red",
+        }}
+        className="  bg-customPink group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-customPink border-none h-2 w-2 -right-1  transform-none"
+        type="target"
+        id={`red-2-${data.id}`}
         position={Position.Right}
         isConnectable={isConnectable}
       />
