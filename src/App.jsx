@@ -64,8 +64,13 @@ function App() {
         </div> */}
       </div>
       {/* Overlay */}
-      {bar && <div className=" lg:hidden flex fixed inset-0" />}
-      <Modal/>
+      {bar && (
+        <div
+          onClick={() => setBar(!bar)}
+          className=" lg:hidden flex fixed inset-0"
+        />
+      )}
+      <Modal />
     </div>
   );
 }
