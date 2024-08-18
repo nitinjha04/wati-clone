@@ -6,7 +6,6 @@ import { MdDelete } from "react-icons/md";
 import { deleteEdges } from "../../store/reducers/node";
 
 const MessageNode = ({ data, id, isConnectable }) => {
-  console.log({ isConnectable });
   const dispatch = useDispatch();
 
   const [inputs, setInputs] = useState([]);
@@ -30,7 +29,6 @@ const MessageNode = ({ data, id, isConnectable }) => {
           ? { ...input, file: fileUrl, fileName: file.name }
           : input
       );
-      console.log({ updatedInputs: updatedInputs });
       setInputs(updatedInputs);
     }
   };
@@ -261,31 +259,31 @@ const MessageNode = ({ data, id, isConnectable }) => {
         ))}
         <div className="flex-wrap max-w-80 flex gap-2 p-4">
           <button
-            className="bg-[#E7F4ED] border-[1px] border-[#7FBF91] text-[#7FBF91] py-1 px-2  rounded-md font-medium text-sm"
+            className="bg-[#E7F4ED] border-[1px] border-[#7FBF91] text-[#7FBF91] py-1 px-2  rounded-md font-normal text-sm"
             onClick={() => addInput("message")}
           >
             Message
           </button>
           <button
-            className="bg-[#E7F4ED] border-[1px] border-[#7FBF91] text-[#7FBF91] py-1 px-2  rounded-md font-medium text-sm"
+            className="bg-[#E7F4ED] border-[1px] border-[#7FBF91] text-[#7FBF91] py-1 px-2  rounded-md font-normal text-sm"
             onClick={() => addInput("image")}
           >
             Image
           </button>
           <button
-            className="bg-[#E7F4ED] border-[1px] border-[#7FBF91] text-[#7FBF91] py-1 px-2  rounded-md font-medium text-sm"
+            className="bg-[#E7F4ED] border-[1px] border-[#7FBF91] text-[#7FBF91] py-1 px-2  rounded-md font-normal text-sm"
             onClick={() => addInput("video")}
           >
             Video
           </button>
           <button
-            className="bg-[#E7F4ED] border-[1px] border-[#7FBF91] text-[#7FBF91] py-1 px-2  rounded-md font-medium text-sm"
+            className="bg-[#E7F4ED] border-[1px] border-[#7FBF91] text-[#7FBF91] py-1 px-2  rounded-md font-normal text-sm"
             onClick={() => addInput("audio")}
           >
             Audio
           </button>
           <button
-            className="bg-[#E7F4ED] border-[1px] border-[#7FBF91] text-[#7FBF91] py-1 px-2  rounded-md font-medium text-sm"
+            className="bg-[#E7F4ED] border-[1px] border-[#7FBF91] text-[#7FBF91] py-1 px-2  rounded-md font-normal text-sm"
             onClick={() => addInput("pdf")}
           >
             Document
@@ -293,8 +291,12 @@ const MessageNode = ({ data, id, isConnectable }) => {
         </div>
       </div>
       <Handle
-        className=" bg-customPink group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-customPink border-none h-2 w-2 -right-1  transform-none"
+        style={{
+          background: "red",
+        }}
+        className="  bg-customPink group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-customPink border-none h-2 w-2 -right-1  transform-none"
         type="source"
+        id="red"
         position={Position.Right}
         isConnectable={isConnectable}
       />

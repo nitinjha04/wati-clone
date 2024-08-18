@@ -14,12 +14,16 @@ const Sidebar = () => {
             onClick={() => {
               setQuestionInput(false);
             }}
-            className=" cursor-pointer flex gap-3 text-black text-center items-start my-auto"
+            className="  cursor-pointer flex gap-3 text-black text-center items-start my-auto"
           >
             <IoMdArrowBack className=" my-auto items-center text-center" />
             <p className=" my-auto font-semibold text-base ">Ask a question</p>
           </div>
-          <div className=" cursor-pointer gap-4 rounded-md  w-full flex justify-between p-[10px] bg-customYellow">
+          <div className=" relative cursor-pointer gap-4 rounded-md  w-full flex justify-between p-[10px] bg-customYellow">
+            <p className="absolute top-0 right-1 text-xs underline ">
+              under development
+            </p>
+
             <div className="flex flex-col gap-2 justify-start items-start ">
               {" "}
               <h3>Question</h3>
@@ -33,7 +37,11 @@ const Sidebar = () => {
               />
             </div>
           </div>
-          <div className=" cursor-pointer gap-4 rounded-md  w-full flex justify-between p-[10px] bg-customYellow">
+          <div className=" relative cursor-pointer gap-4 rounded-md  w-full flex justify-between p-[10px] bg-customYellow">
+            <p className="absolute top-0 right-1 text-xs underline ">
+              under development
+            </p>
+
             <div className="flex flex-col gap-2 justify-start items-start ">
               {" "}
               <h3>Buttons</h3>
@@ -51,7 +59,11 @@ const Sidebar = () => {
               />
             </div>
           </div>
-          <div className=" cursor-pointer gap-4 rounded-md  w-full flex justify-between p-[10px] bg-customYellow">
+          <div className=" relative cursor-pointer gap-4 rounded-md  w-full flex justify-between p-[10px] bg-customYellow">
+            <p className="absolute top-0 right-1 text-xs underline ">
+              under development
+            </p>
+
             <div className="flex flex-col gap-2 justify-start items-start ">
               {" "}
               <h3>List</h3>
@@ -96,8 +108,11 @@ const Sidebar = () => {
             onClick={() => {
               setQuestionInput(true);
             }}
-            className=" cursor-pointer gap-4 rounded-md  w-full flex justify-between p-[10px] bg-customYellow"
+            className="relative cursor-pointer gap-4 rounded-md  w-full flex justify-between p-[10px] bg-customYellow"
           >
+            <p className="absolute top-0 right-1 text-xs underline ">
+              under development
+            </p>
             <div className="flex flex-col gap-2 justify-start items-start ">
               {" "}
               <h3>Ask a question</h3>

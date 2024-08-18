@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Sidebar from "./utils/Sidebar";
 import Flow from "./components/Flow";
+import Modal from "./components/Modal";
 
 function App() {
   const [bar, setBar] = useState(true);
@@ -64,6 +65,7 @@ function App() {
       </div>
       {/* Overlay */}
       {bar && <div className=" lg:hidden flex fixed inset-0" />}
+      <Modal/>
     </div>
   );
 }

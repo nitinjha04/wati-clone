@@ -12,6 +12,7 @@ import {
 import "@xyflow/react/dist/style.css";
 import ConnectionNode from "./nodes/ConditionNode";
 import MessageNode from "./nodes/MessageNode";
+import ConnectionLine from './ConnectionLine';
 import { useDispatch, useSelector } from "react-redux";
 import {
   addEdge,
@@ -34,7 +35,6 @@ const Flow = () => {
   const addFlowEdge = (connection, edges) => {
     const existingEdge = edges.find((edge) => edge.id === connection.id);
     if (!existingEdge) {
-      console.log({ edges, connection });
       return [...edges, connection];
     }
     return edges;
@@ -54,7 +54,6 @@ const Flow = () => {
       const updatedEdges = applyEdgeChanges(changes, edges);
       setEdges(updatedEdges);
 
-      console.log({ updatedEdges });
       dispatch(updateEdges(updatedEdges));
     },
     [dispatch, edges, setEdges]
@@ -82,6 +81,7 @@ const Flow = () => {
         edges={reduxEdges}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
+        connectionLineComponent={ConnectionLine}
         onConnect={onConnect}
         nodeTypes={nodeTypes}
       >

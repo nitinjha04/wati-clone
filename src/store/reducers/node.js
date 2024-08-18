@@ -2,18 +2,26 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   nodes: [
-    // {
-    //   id: "1",
-    //   position: { x: 150, y: 150 },
-    //   data: { id: "1", label: "1", value: 123, inputType: null },
-    // },
-    // {
-    //   id: "2",
-    //   position: { x: 400, y: 400 },
-    //   data: { id: "2", label: "2", inputType: null },
-    // },
+    {
+      id: "1",
+      position: { x: 150, y: 150 },
+      data: { id: "1", label: "1", value: 123, inputType: null },
+    },
+    {
+      id: "2",
+      position: { x: 400, y: 400 },
+      data: { id: "2", label: "2", inputType: null },
+    },
   ],
-  edges: [],
+  edges: [
+    {
+      id: "e1-2",
+      source: "1",
+      target: "2",
+      animated: true,
+      // style: { stroke: "red" },
+    },
+  ],
 };
 
 const nodesSlice = createSlice({
@@ -57,10 +65,23 @@ const nodesSlice = createSlice({
         (edge) => edge.target === target
       );
 
+      const getStrokeColor = (color) => {
+        switch (true) {
+          case color.includes("red"):
+            return "red";
+          case color.includes("green"):
+            return "green";
+          default:
+            return "gray";
+        }
+      };
+
       if (!edgeExists) {
         state.edges.push({
           ...action.payload,
           id: (state.edges.length + 1).toString(),
+          animated: true,
+          style: { stroke: getStrokeColor(action.payload.sourceHandle) },
         });
       }
     },
