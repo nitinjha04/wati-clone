@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { addNode } from "../store/reducers/node";
 import { IoMdArrowBack } from "react-icons/io";
 
-const Sidebar = () => {
+const Sidebar = ({ setBar, bar }) => {
   const dispatch = useDispatch();
   const [questionInput, setQuestionInput] = useState(false);
   return (
@@ -86,6 +86,7 @@ const Sidebar = () => {
           <div
             onClick={() => {
               dispatch(addNode("textUpdater"));
+              setBar(false);
             }}
             className=" cursor-pointer gap-4 rounded-md  w-full flex justify-between p-[10px] bg-customPink"
           >
@@ -131,6 +132,7 @@ const Sidebar = () => {
           <div
             onClick={() => {
               dispatch(addNode("connection"));
+              setBar(false);
             }}
             className=" cursor-pointer  rounded-md  w-full flex justify-between p-[10px] bg-customBlue"
           >
