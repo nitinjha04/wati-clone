@@ -49,7 +49,7 @@ function App() {
             bar ? "translate-x-0" : "-translate-x-full"
           } transition-transform duration-300 ease-in-out`}
         >
-          <Sidebar setBar={setBar} bar={bar} />
+          <Sidebar />
         </div>
 
         {/* React FLow */}

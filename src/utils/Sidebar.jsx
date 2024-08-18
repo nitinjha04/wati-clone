@@ -86,7 +86,9 @@ const Sidebar = ({ setBar, bar }) => {
           <div
             onClick={() => {
               dispatch(addNode("textUpdater"));
-              setBar(false);
+              if (setBar) {
+                setBar(false);
+              }
             }}
             className=" cursor-pointer gap-4 rounded-md  w-full flex justify-between p-[10px] bg-customPink"
           >
@@ -132,7 +134,9 @@ const Sidebar = ({ setBar, bar }) => {
           <div
             onClick={() => {
               dispatch(addNode("connection"));
-              setBar(false);
+              if (setBar) {
+                setBar(false);
+              }
             }}
             className=" cursor-pointer  rounded-md  w-full flex justify-between p-[10px] bg-customBlue"
           >
