@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { closeModal } from "../store/reducers/modal";
+import { FaTimes } from "react-icons/fa";
 
-import { FaQuestionCircle, FaChevronDown } from "react-icons/fa";
+const Modal = ({
+  onClose,
+  children,
+  heading = "condition",
+}) => {
+  useEffect(() => {
+    const modalRoot = document.createElement("div");
+    modalRoot.id = "modal-root";
+    document.body.appendChild(modalRoot);
 
-const Modal = ({}) => {
-  const dispatch = useDispatch();
-  const open = useSelector((state) => state.modal.open);
-  const modalChildren = useSelector((state) => state.modal.modalChildren);
-  if (!open) return null;
+    return () => {
+      document.body.removeChild(modalRoot);
+    };
+  }, []);
 
-  return (
+  return ReactDOM.createPortal(
     <div
-      className="absolute  inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-      onClick={() => dispatch(closeModal())}
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+      onClick={onClose}
     >
       <div
         className="bg-white rounded-lg p-6 max-w-lg w-full relative"
@@ -22,27 +28,28 @@ const Modal = ({}) => {
       >
         <button
           className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 focus:outline-none"
-          onClick={() => dispatch(closeModal())}
+          onClick={onClose}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          <FaTimes className="h-6 w-6" />
         </button>
-        {modalChildren}
-       
+
+        <div className=" pb-9 px-7">
+          <div>
+            <h3 className=" font-semibold text-bases border-b-[1px] border-solid pb-5 ">
+              Set a {heading}{" "}
+              <a
+                className="italic underline text-blue-400 font-normal text-sm  "
+                href=""
+              >
+                How to use
+              </a>{" "}
+            </h3>
+            {children}
+          </div>
+        </div>
       </div>
-    </div>
+    </div>,
+    document.getElementById("modal-root")
   );
 };
 

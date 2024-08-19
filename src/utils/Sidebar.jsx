@@ -19,10 +19,18 @@ const Sidebar = ({ setBar, bar }) => {
             <IoMdArrowBack className=" my-auto items-center text-center" />
             <p className=" my-auto font-semibold text-base ">Ask a question</p>
           </div>
-          <div className=" relative cursor-pointer gap-4 rounded-md  w-full flex justify-between p-[10px] bg-customYellow">
-            <p className="absolute top-0 right-1 text-xs underline ">
+          <div
+            onClick={() => {
+              dispatch(addNode("question1"));
+              if (setBar) {
+                setBar(false);
+              }
+            }}
+            className=" relative cursor-pointer gap-4 rounded-md  w-full flex justify-between p-[10px] bg-customYellow"
+          >
+            {/* <p className="absolute top-0 right-1 text-xs underline ">
               under development
-            </p>
+            </p> */}
 
             <div className="flex flex-col gap-2 justify-start items-start ">
               {" "}
@@ -113,9 +121,9 @@ const Sidebar = ({ setBar, bar }) => {
             }}
             className="relative cursor-pointer gap-4 rounded-md  w-full flex justify-between p-[10px] bg-customYellow"
           >
-            <p className="absolute top-0 right-1 text-xs underline ">
+            {/* <p className="absolute top-0 right-1 text-xs underline ">
               under development
-            </p>
+            </p> */}
             <div className="flex flex-col gap-2 justify-start items-start ">
               {" "}
               <h3>Ask a question</h3>

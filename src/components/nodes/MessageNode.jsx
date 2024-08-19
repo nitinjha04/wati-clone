@@ -34,31 +34,27 @@ const MessageNode = ({ data, id, isConnectable }) => {
   };
 
   return (
-    <div key={data.id} className="group text-updater-node">
-      <Handle
-        style={{
-          background: "red",
-        }}
-        className="  bg-customPink group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-customPink border-none h-2 w-2 -right-1  transform-none"
-        type="target"
-        id={`red-${data.id}`}
-        position={Position.Left}
-        isConnectable={isConnectable}
-      />
-      <Handle
-        style={{
-          background: "red",
-        }}
-        className="  bg-customPink group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-customPink border-none h-2 w-2 -right-1  transform-none"
-        type="source"
-        id={`red-${data.id}`}
-        position={Position.Left}
-        isConnectable={isConnectable}
-      />
-      <div className=" shadow-2xl bg-white rounded-lg border-[1px] border-solid">
+    <div key={data.id} className="   text-updater-node w-80">
+      <div className=" cursor-move group relative  shadow-2xl bg-white rounded-lg border-[1px] border-solid">
+        <Handle
+         
+          className=" absolute bg-customPink hover:bg-white group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-customPink border-none h-2 w-2 -left-1  transform-none"
+          type="target"
+          id={`red-${data.id}`}
+          position={Position.Left}
+          isConnectable={isConnectable}
+        />
+        <Handle
+         
+          className=" absolute  bg-customPink hover:bg-white group-hover:bg-white border-[1px]  group-hover:border-solid group-hover:border-customPink border-none h-2 w-2 -left-1  transform-none"
+          type="source"
+          id={`red-1-2-${data.id}`}
+          position={Position.Left}
+          isConnectable={isConnectable}
+        />
         <div className=" flex p-3 gap-5 justify-between rounded-t-lg  bg-customPink">
           <div className=" flex gap-3 my-auto items-center">
-            <div className=" justify-center my-auto bg-customLightPink h-11 w-11 mx-auto items-center rounded-full flex ">
+            <div className=" justify-center my-auto bg-customLightPink h-9 w-9 mx-auto items-center rounded-full flex ">
               <img
                 src="/message.svg"
                 alt="Message Icon"
@@ -304,27 +300,21 @@ const MessageNode = ({ data, id, isConnectable }) => {
             Document
           </button>
         </div>
+        <Handle
+          className="  bg-customPink group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-customPink border-none h-2 w-2 -right-1  transform-none"
+          type="source"
+          id={`red-2-${data.id}`}
+          position={Position.Right}
+          isConnectable={isConnectable}
+        />
+        <Handle
+          className="  bg-customPink group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-customPink border-none h-2 w-2 -right-1  transform-none"
+          type="target"
+          id={`red-2-2-${data.id}`}
+          position={Position.Right}
+          isConnectable={isConnectable}
+        />
       </div>
-      <Handle
-        style={{
-          background: "red",
-        }}
-        className="  bg-customPink group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-customPink border-none h-2 w-2 -right-1  transform-none"
-        type="source"
-        id={`red-2-${data.id}`}
-        position={Position.Right}
-        isConnectable={isConnectable}
-      />
-      <Handle
-        style={{
-          background: "red",
-        }}
-        className="  bg-customPink group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-customPink border-none h-2 w-2 -right-1  transform-none"
-        type="target"
-        id={`red-2-${data.id}`}
-        position={Position.Right}
-        isConnectable={isConnectable}
-      />
     </div>
   );
 };

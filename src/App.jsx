@@ -72,7 +72,6 @@ function App() {
           className=" lg:hidden flex fixed inset-0"
         />
       )}
-      <Modal />
     </div>
   );
 }

@@ -12,6 +12,7 @@ import {
 import "@xyflow/react/dist/style.css";
 import ConnectionNode from "./nodes/ConditionNode";
 import MessageNode from "./nodes/MessageNode";
+import QuestionNode from "./nodes/QuestionNode";
 import ConnectionLine from './ConnectionLine';
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -21,7 +22,7 @@ import {
   updateNodes,
 } from "../store/reducers/node";
 
-const nodeTypes = { textUpdater: MessageNode, connection: ConnectionNode };
+const nodeTypes = { textUpdater: MessageNode, connection: ConnectionNode,question1:QuestionNode };
 
 const Flow = () => {
   const dispatch = useDispatch();

@@ -9,23 +9,17 @@ import { deleteEdges } from "../../store/reducers/node";
 import { FaQuestionCircle, FaChevronDown } from "react-icons/fa";
 
 import { closeModal, openModal } from "../../store/reducers/modal";
+import Modal from "../Modal";
 
 const ConditionNode = ({ data, id, isConnectable }) => {
   const dispatch = useDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [ifCondition, setIfCondition] = useState("");
+  const [equalToCondition, setEqualToCondition] = useState("");
 
   const conditionModal = (
-    <div className=" pb-9 px-7">
-      <div>
-        <h3 className=" font-semibold text-bases border-b-[1px] border-solid pb-5 ">
-          Set a condition{" "}
-          <a
-            className="italic underline text-blue-400 font-normal text-sm  "
-            href=""
-          >
-            How to use
-          </a>{" "}
-        </h3>
-      </div>
+    <div>
       <div className=" py-5 font-semibold text-sm pb-5">
         <h4 className=" mb-3">Set the condition(s)</h4>
         <div className=" flex flex-col gap-3 justify-evenly bg-[#F0F5F6] p-2 rounded-md">
@@ -35,6 +29,8 @@ const ConditionNode = ({ data, id, isConnectable }) => {
               IF
             </div>
             <input
+              value={ifCondition}
+              onChange={(e) => setIfCondition(e.target.value)}
               type="text"
               className=" rounded block h-9 w-full p-2 outline-none pl-[70px] pr-24"
             />
@@ -53,6 +49,8 @@ const ConditionNode = ({ data, id, isConnectable }) => {
           </div>
           <div className="relative rounded  bg-white">
             <input
+              value={equalToCondition}
+              onChange={(e) => setEqualToCondition(e.target.value)}
               type="text"
               className=" rounded block h-9 w-full p-2 outline-none pr-24"
             />
@@ -63,17 +61,27 @@ const ConditionNode = ({ data, id, isConnectable }) => {
         </div>
       </div>
       <div className="flex justify-end items-end gap-3">
-        <button className="rounded border-[#44B26E] text-[#44B26E] border-[1px] py-1 px-4">
+        <button
+          onClick={() => {
+            setIsModalOpen(false);
+          }}
+          className="rounded border-[#44B26E] text-[#44B26E] border-[1px] py-1 px-4"
+        >
           Cancel
         </button>
-        <button className="rounded border-[#44B26E] bg-[#44B26E] text-white border-[1px] py-1 px-4">
+        <button
+          onClick={() => {
+            setIsModalOpen(false);
+          }}
+          className="rounded border-[#44B26E] bg-[#44B26E] text-white border-[1px] py-1 px-4"
+        >
           Save
         </button>
       </div>
     </div>
   );
   return (
-    <div key={data.id} className=" text-updater-node">
+    <div key={data.id} className=" text-updater-node w-80">
       <div className="relative group shadow-2xl bg-white rounded-lg border-[1px] border-solid">
         <div className=" flex flex-col absolute gap-4 top-[40%]  right-0 w-full  justify-evenly items-end ">
           <Handle
@@ -93,12 +101,13 @@ const ConditionNode = ({ data, id, isConnectable }) => {
         </div>
         <div
           onDoubleClick={() => {
-            dispatch(openModal(conditionModal));
+            // dispatch(openModal(conditionModal));
+            setIsModalOpen(true);
           }}
           className=" cursor-move flex p-3 gap-5 justify-between rounded-t-lg  bg-customBlue"
         >
           <div className=" flex gap-3 my-auto items-center">
-            <div className=" justify-center my-auto bg-customLightBlue h-11 w-11 mx-auto items-center rounded-full flex ">
+            <div className=" justify-center my-auto bg-customLightBlue h-9 w-9 mx-auto items-center rounded-full flex ">
               <img
                 src="/condition.svg"
                 alt="Condition Icon"
@@ -125,6 +134,15 @@ const ConditionNode = ({ data, id, isConnectable }) => {
           This is condition content
         </div>
       </div>
+      {isModalOpen && (
+        <Modal
+          onClose={() => {
+            setIsModalOpen(false);
+          }}
+        >
+          {conditionModal}
+        </Modal>
+      )}
     </div>
   );
 };
