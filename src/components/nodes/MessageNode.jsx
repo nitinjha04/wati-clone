@@ -39,7 +39,7 @@ const MessageNode = ({ data, id, isConnectable }) => {
         <Handle
          
           className=" absolute bg-customPink hover:bg-white group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-customPink border-none h-2 w-2 -left-1  transform-none"
-          type="target"
+          type="source"
           id={`red-${data.id}`}
           position={Position.Left}
           isConnectable={isConnectable}
@@ -302,7 +302,7 @@ const MessageNode = ({ data, id, isConnectable }) => {
         </div>
         <Handle
           className="  bg-customPink group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-customPink border-none h-2 w-2 -right-1  transform-none"
-          type="source"
+          type="target"
           id={`red-2-${data.id}`}
           position={Position.Right}
           isConnectable={isConnectable}

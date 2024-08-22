@@ -83,16 +83,16 @@ const QuestionNode = ({ data, id, isConnectable }) => {
     <div key={data.id} className=" text-updater-node w-80">
       <div className="relative group shadow-2xl bg-white rounded-lg border-[1px] border-solid">
         <Handle
-          className=" absolute bg-yellow-500 group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-yellow-500 border-none h-2 w-2  top-1/2  -right-1 transform-none"
+          className=" absolute bg-yellow-500 group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-yellow-500 border-none h-2 w-2  top-1/2  -left-1 transform-none"
           id={`yellow-${data.id}`}
-          type="target"
-          position={Position.Right}
+          type="source"
+          position={Position.Left}
           isConnectable={isConnectable}
         />{" "}
         <Handle
           className=" absolute bg-yellow-500 group-hover:bg-white border-[1px] group-hover:border-solid group-hover:border-yellow-500 border-none h-2 w-2  top-1/2  -right-1 transform-none"
           id={`yellow-2-${data.id}`}
-          type="source"
+          type="target"
           position={Position.Right}
           isConnectable={isConnectable}
         />
